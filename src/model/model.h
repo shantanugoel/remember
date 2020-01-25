@@ -1,28 +1,24 @@
-#ifndef RMBR_MODEL_H_
-#define RMBR_MODEL_H_
+#ifndef RMBR_MODEL_MODEL_H_
+#define RMBR_MODEL_MODEL_H_
 
+#include <map>
 #include <string>
+
+#include "model/model_item.h"
+#include "model/storage.h"
 
 namespace rmbr {
 
-class ModelItem {
- public:
-  ModelItem() = delete;
-  ModelItem(const std::string& input) : what_(std::move(input)) {}
-
- private:
-  int id_;  // TODO: Replace with uuid
-  std::string what_;
-};
-
 class Model {
  public:
-  Model() : what_("") {}
-  Model(const std::string& what) : what_(what) {}
+  Model() = delete;
+  Model(Storage& storage) : storage_(storage) {}
 
  private:
-  std::string what_;
+  // TODO: Potentially implement caching. Either here or at storage
+  Storage storage_;
 };
+
 }  // namespace rmbr
 
-#endif  // RMBR_MODEL_H_
+#endif  // RMBR_MODEL_MODEL_H_
