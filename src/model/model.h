@@ -16,7 +16,7 @@ class Model {
 
  private:
   // TODO: Potentially implement caching. Either here or at storage
-  Storage storage_;
+  Storage& storage_;
 };
 
 }  // namespace rmbr
