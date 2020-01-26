@@ -1,3 +1,5 @@
+package(default_visibility = ["//:__subpackages__"])
+
 load("@rules_cc//cc:defs.bzl", "cc_library")
 
 cc_library(
@@ -6,15 +8,10 @@ cc_library(
 )
 
 cc_library(
-    name = "storage_interface",
-    hdrs = ["storage.h"],
-)
-
-cc_library(
     name = "model",
     hdrs = ["model.h"],
     deps = [
         ":model_item",
-        ":storage_interface",
+        "//src/storage:storage_interface",
     ],
 )

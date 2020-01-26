@@ -1,5 +1,5 @@
-#ifndef RMBR_MODEL_STORAGE_H_
-#define RMBR_MODEL_STORAGE_H_
+#ifndef RMBR_MODEL_STORAGE_INTERFACE_H_
+#define RMBR_MODEL_STORAGE_INTERFACE_H_
 
 #include "model/model_item.h"
 
@@ -15,4 +15,4 @@ class Storage {
 
 }  // namespace rmbr
 
-#endif  // RMBR_MODEL_STORAGE_H_
+#endif  // RMBR_MODEL_STORAGE_INTERFACE_H_

@@ -5,7 +5,7 @@
 #include <string>
 
 #include "model/model_item.h"
-#include "model/storage.h"
+#include "storage/storage_inferface.h"
 
 namespace rmbr {
 
@@ -13,6 +13,10 @@ class Model {
  public:
   Model() = delete;
   Model(Storage& storage) : storage_(storage) {}
+
+  uint64_t store(ModelItem& item) { return storage_.store(item); }
+
+  ModelItem& retrieve(uint64_t) { return storage_.retrieve(0); }
 
  private:
   // TODO: Potentially implement caching. Either here or at storage
