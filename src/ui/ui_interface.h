@@ -6,9 +6,7 @@ namespace rmbr {
 // TODO: Singleton?
 class UiInterface {
  public:
-  UiInterface() = delete;
-  ~UiInterface() = delete;
-  virtual bool Start();
+  virtual bool Start() = 0;
 
  private:
 };

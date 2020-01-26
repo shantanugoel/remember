@@ -9,6 +9,7 @@ cc_library(
 
 cc_library(
     name = "ui_cli",
+    srcs = ["ui_cli.cc"],
     hdrs = ["ui_cli.h"],
     deps = [
         ":ui_interface",

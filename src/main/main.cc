@@ -2,4 +2,8 @@
 #include "src/storage/storage_impl_memory.h"
 #include "src/ui/ui_cli.h"
 
-int main() { return 0; }
+int main(int argc, char** argv) {
+  rmbr::UiCli ui;
+  ui.Start();
+  return 0;
+}
