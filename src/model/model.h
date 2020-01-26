@@ -4,8 +4,8 @@
 #include <map>
 #include <string>
 
-#include "model/model_item.h"
-#include "storage/storage_inferface.h"
+#include "src/model/model_item.h"
+#include "src/storage/storage_interface.h"
 
 namespace rmbr {
 

@@ -1,1 +1,3 @@
-build --cxxopt='-std=c++14' --cxxopt='-Wall' --cxxopt='-Wextra' --cxxopt='-pedantic' --cxxopt='-Werror'
+build --cxxopt='-std=c++14' --cxxopt='-Wall' --cxxopt='-Wextra' --cxxopt='-pedantic' 
+# TODO: Enable this
+# --cxxopt='-Werror'

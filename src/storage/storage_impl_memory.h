@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 
-#include "model/storage.h"
+#include "src/storage/storage_interface.h"
 
 namespace rmbr {
 
@@ -14,8 +14,8 @@ class StorageMemory : public Storage {
   uint64_t store(ModelItem& item) override { return 0; }
   // TODO: Implement
   ModelItem& retrieve(uint64_t) override {
-    ModelItem test("test");
-    return test;
+    ModelItem* m = new ModelItem("abc");
+    return *m;
   }
 
  private:
