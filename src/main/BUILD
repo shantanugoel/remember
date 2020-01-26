@@ -1,6 +1,6 @@
-load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 
-cc_binary(
+cc_library(
     name = "rmbrlib",
     deps = [
         "//src/model",
