@@ -14,7 +14,10 @@ class Model {
   Model() = delete;
   Model(Storage& storage) : storage_(storage) {}
 
-  uint64_t store(ModelItem& item) { return storage_.store(item); }
+  uint64_t store(std::string what) {
+    ModelItem* item = new ModelItem(what);
+    return storage_.store(*item);
+  }
 
   ModelItem* retrieve(uint64_t) { return storage_.retrieve(0); }
 
