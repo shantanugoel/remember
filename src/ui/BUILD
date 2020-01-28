@@ -5,6 +5,10 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 cc_library(
     name = "ui_interface",
     hdrs = ["ui_interface.h"],
+    deps = [
+        "//src/controller",
+        "//src/model",
+    ],
 )
 
 cc_library(

@@ -7,7 +7,7 @@ namespace rmbr {
 class Storage {
  public:
   virtual uint64_t store(ModelItem& item) = 0;
-  virtual ModelItem& retrieve(uint64_t) = 0;
+  virtual ModelItem* retrieve(uint64_t) = 0;
   // TODO: Add other search/retrieve mechanisms
 
  private:

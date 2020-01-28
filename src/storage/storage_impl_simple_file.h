@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 
-#include "src/storage/storage_inferface.h"
+#include "src/storage/storage_interface.h"
 
 namespace rmbr {
 
@@ -20,10 +20,7 @@ class StorageSimpleFile : public Storage {
   // TODO: Implement
   uint64_t store(ModelItem& item) override { return 0; }
   // TODO: Implement
-  ModelItem& retrieve(uint64_t) override {
-    ModelItem test("test");
-    return test;
-  }
+  ModelItem* retrieve(uint64_t) override { return nullptr; }
 
  private:
   std::fstream file_;

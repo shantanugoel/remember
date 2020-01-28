@@ -16,11 +16,12 @@ class Model {
 
   uint64_t store(ModelItem& item) { return storage_.store(item); }
 
-  ModelItem& retrieve(uint64_t) { return storage_.retrieve(0); }
+  ModelItem* retrieve(uint64_t) { return storage_.retrieve(0); }
 
  private:
   // TODO: Potentially implement caching. Either here or at storage
   Storage& storage_;
+  uint64_t version_;  // TODO
 };
 
 }  // namespace rmbr
