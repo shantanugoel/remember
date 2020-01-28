@@ -17,5 +17,6 @@ cc_library(
     hdrs = ["ui_cli.h"],
     deps = [
         ":ui_interface",
+        "@cli11",
     ],
 )

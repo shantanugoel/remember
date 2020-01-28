@@ -2,6 +2,8 @@
 #define RMBR_UI_UI_CLI_H_
 
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "src/controller/controller.h"
 #include "src/model/model.h"
@@ -14,7 +16,7 @@ class UiCli : public UiInterface {
   UiCli(Controller& controller, Model& model)
       : controller_(controller), model_(model) {}
   ~UiCli() {}
-  bool Start() override;
+  bool Start(std::vector<std::string> passthrough_options) override;
 
  private:
   Controller& controller_;

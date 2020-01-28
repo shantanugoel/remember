@@ -8,10 +8,11 @@ namespace rmbr {
 
 // TODO: Connect insight engine that parses/analyzes model items to provide
 // value adds, e.g., time of occurence
+// TODO: Templatize ModelItem to take various types of items, not just strings
 class ModelItem {
  public:
-  // ModelItem() = delete;
-  // ModelItem(const std::string& input) : what_(std::move(input)) {}
+  ModelItem() = delete;
+  ModelItem(const std::string& input) : what_(std::move(input)) {}
 
  private:
   int id_;  // TODO: Replace with uuid
