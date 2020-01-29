@@ -9,6 +9,8 @@
 
 namespace rmbr {
 
+// This implementation is not that useful without a server/client mode which can
+// retain memory across client invocations
 class StorageMemory : public Storage {
  public:
   // TODO: Implement. Generate new id
