@@ -2,6 +2,7 @@
 #include "src/controller/controller.h"
 #include "src/model/model.h"
 #include "src/storage/storage_impl_memory.h"
+#include "src/storage/storage_impl_simple_file.h"
 #include "src/ui/ui_cli.h"
 
 int main(int argc, char** argv) {
@@ -13,7 +14,10 @@ int main(int argc, char** argv) {
   std::vector<std::string> remaining_args;
   remaining_args = app.remaining_for_passthrough();
 
-  rmbr::StorageMemory storage;
+  rmbr::StorageSimpleFile storage;
+  // TODO: Graceful error handling
+  assert(storage.Initialize(remaining_args, remaining_args));
+
   rmbr::Controller controller;
   rmbr::Model model(storage);
   rmbr::UiCli ui(controller, model);

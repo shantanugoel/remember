@@ -5,28 +5,26 @@
 #include <string>
 #include <vector>
 
+#include "src/model/model_item.h"
 #include "src/storage/storage_interface.h"
 
 namespace rmbr {
 
 class StorageSimpleFile : public Storage {
  public:
-  StorageSimpleFile() = delete;
-  StorageSimpleFile(const std::string& filePath) {
-    file_.open(filePath, file_.in | file_.out);
-    // TODO: better graceful failure
-    assert(file_.is_open());
+  // TODO: Implement
+  uint64_t Store(ModelItem& item) override {
+    (void)item;
+    return 0;
   }
-
   // TODO: Implement
-  uint64_t Store(ModelItem& item) override { return 0; }
-  // TODO: Implement
-  ModelItem* Retrieve(uint64_t) override { return nullptr; }
+  ModelItem* Retrieve(uint64_t id) override {
+    (void)id;
+    return nullptr;
+  }
 
   bool Initialize(std::vector<std::string> input_args,
-                  std::vector<std::string>& remaining_args) override {
-    return true;
-  }
+                  std::vector<std::string>& remaining_args) override;
 
  private:
   std::fstream file_;

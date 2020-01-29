@@ -6,6 +6,7 @@ cc_library(
         "//src/controller",
         "//src/model",
         "//src/storage:storage_memory",
+        "//src/storage:storage_simple_file",
         "//src/ui:ui_cli",
         "@cli11",
     ],

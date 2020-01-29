@@ -14,3 +14,14 @@ cc_library(
         ":storage_interface",
     ],
 )
+
+cc_library(
+    name = "storage_simple_file",
+    srcs = ["storage_impl_simple_file.cc"],
+    hdrs = ["storage_impl_simple_file.h"],
+    deps = [
+        ":storage_interface",
+        "//src/model:model_item",
+        "@cli11",
+    ],
+)
