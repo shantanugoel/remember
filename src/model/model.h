@@ -14,17 +14,17 @@ class Model {
   Model() = delete;
   Model(Storage& storage) : storage_(storage) {}
 
-  uint64_t store(std::string what) {
+  uint64_t Store(std::string what) {
     ModelItem* item = new ModelItem(what);
-    return storage_.store(*item);
+    return storage_.Store(*item);
   }
 
-  ModelItem* retrieve(uint64_t) { return storage_.retrieve(0); }
+  ModelItem* Retrieve(uint64_t) { return storage_.Retrieve(0); }
 
  private:
   // TODO: Potentially implement caching. Either here or at storage
   Storage& storage_;
-  uint64_t version_;  // TODO
+  // uint64_t version_;  // TODO
 };
 
 }  // namespace rmbr

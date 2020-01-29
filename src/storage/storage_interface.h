@@ -6,8 +6,10 @@
 namespace rmbr {
 class Storage {
  public:
-  virtual uint64_t store(ModelItem& item) = 0;
-  virtual ModelItem* retrieve(uint64_t) = 0;
+  virtual uint64_t Store(ModelItem& item) = 0;
+  virtual ModelItem* Retrieve(uint64_t) = 0;
+  virtual bool Initialize(std::vector<std::string> input_args,
+                          std::vector<std::string>& remaining_args) = 0;
   // TODO: Add other search/retrieve mechanisms
 
  private:

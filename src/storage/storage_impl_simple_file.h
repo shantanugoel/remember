@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <vector>
 
 #include "src/storage/storage_interface.h"
 
@@ -18,9 +19,14 @@ class StorageSimpleFile : public Storage {
   }
 
   // TODO: Implement
-  uint64_t store(ModelItem& item) override { return 0; }
+  uint64_t Store(ModelItem& item) override { return 0; }
   // TODO: Implement
-  ModelItem* retrieve(uint64_t) override { return nullptr; }
+  ModelItem* Retrieve(uint64_t) override { return nullptr; }
+
+  bool Initialize(std::vector<std::string> input_args,
+                  std::vector<std::string>& remaining_args) override {
+    return true;
+  }
 
  private:
   std::fstream file_;

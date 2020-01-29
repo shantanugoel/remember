@@ -15,7 +15,7 @@ class ModelItem {
   ModelItem(const std::string& input) : what_(std::move(input)) {}
 
  private:
-  int id_;  // TODO: Replace with uuid
+  // int id_;  // TODO: Replace with uuid
   std::string what_;
 };
 

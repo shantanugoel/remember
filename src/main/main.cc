@@ -10,10 +10,13 @@ int main(int argc, char** argv) {
   app.allow_extras();
   CLI11_PARSE(app, argc, argv);
 
+  std::vector<std::string> remaining_args;
+  remaining_args = app.remaining_for_passthrough();
+
   rmbr::StorageMemory storage;
   rmbr::Controller controller;
   rmbr::Model model(storage);
   rmbr::UiCli ui(controller, model);
-  ui.Start(app.remaining_for_passthrough());
+  ui.Start(remaining_args);
   return 0;
 }

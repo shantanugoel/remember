@@ -1,3 +1,1 @@
-build --cxxopt='-std=c++17' --cxxopt='-Wall' --cxxopt='-Wextra' --cxxopt='-pedantic' 
-# TODO: Enable this
-# --cxxopt='-Werror'
+build --cxxopt='-std=c++17' --cxxopt='-Wall' --cxxopt='-Wextra' --cxxopt='-pedantic' --cxxopt='-Werror'

@@ -14,9 +14,12 @@ namespace rmbr {
 class UiCli : public UiInterface {
  public:
   UiCli(Controller& controller, Model& model)
-      : controller_(controller), model_(model) {}
+      : controller_(controller), model_(model) {
+    (void)controller_;
+  }
+
   ~UiCli() {}
-  bool Start(std::vector<std::string> passthrough_options) override;
+  bool Start(std::vector<std::string>& input_args) override;
 
  private:
   Controller& controller_;
