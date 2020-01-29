@@ -11,16 +11,16 @@ int main(int argc, char** argv) {
   app.allow_extras();
   CLI11_PARSE(app, argc, argv);
 
-  std::vector<std::string> remaining_args;
-  remaining_args = app.remaining_for_passthrough();
+  // TODO: Create separate interface to combine CLI arguments for all available
+  // options, so -h can display those
 
   rmbr::StorageSimpleFile storage;
   // TODO: Graceful error handling
-  assert(storage.Initialize(remaining_args, remaining_args));
+  assert(storage.Initialize(app));
 
   rmbr::Controller controller;
   rmbr::Model model(storage);
   rmbr::UiCli ui(controller, model);
-  ui.Start(remaining_args);
+  ui.Start(app);
   return 0;
 }

@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "CLI/CLI.hpp"
 #include "src/controller/controller.h"
 #include "src/model/model.h"
 #include "src/ui/ui_interface.h"
@@ -19,7 +20,8 @@ class UiCli : public UiInterface {
   }
 
   ~UiCli() {}
-  bool Start(std::vector<std::string>& input_args) override;
+  // bool Start(std::vector<std::string>& input_args) override;
+  bool Start(CLI::App& app) override;
 
  private:
   Controller& controller_;

@@ -4,12 +4,15 @@
 #include <string>
 #include <vector>
 
+#include "CLI/CLI.hpp"
+
 namespace rmbr {
 
 // TODO: Singleton?
 class UiInterface {
  public:
-  virtual bool Start(std::vector<std::string>& input_args) = 0;
+  // virtual bool Start(std::vector<std::string>& input_args) = 0;
+  virtual bool Start(CLI::App& app) = 0;
 
  private:
 };

@@ -5,6 +5,9 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 cc_library(
     name = "storage_interface",
     hdrs = ["storage_interface.h"],
+    deps = [
+        "@cli11",
+    ],
 )
 
 cc_library(
@@ -12,6 +15,7 @@ cc_library(
     hdrs = ["storage_impl_memory.h"],
     deps = [
         ":storage_interface",
+        "@cli11",
     ],
 )
 

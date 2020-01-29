@@ -8,6 +8,7 @@ cc_library(
     deps = [
         "//src/controller",
         "//src/model",
+        "@cli11",
     ],
 )
 

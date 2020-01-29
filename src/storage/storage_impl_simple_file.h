@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "CLI/CLI.hpp"
 #include "src/model/model_item.h"
 #include "src/storage/storage_interface.h"
 
@@ -12,6 +13,7 @@ namespace rmbr {
 
 class StorageSimpleFile : public Storage {
  public:
+  ~StorageSimpleFile() { file_.close(); }
   // TODO: Implement
   uint64_t Store(ModelItem& item) override {
     (void)item;
@@ -23,8 +25,7 @@ class StorageSimpleFile : public Storage {
     return nullptr;
   }
 
-  bool Initialize(std::vector<std::string> input_args,
-                  std::vector<std::string>& remaining_args) override;
+  bool Initialize(CLI::App& app) override;
 
  private:
   std::fstream file_;

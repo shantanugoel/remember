@@ -7,19 +7,17 @@
 
 namespace rmbr {
 
-bool StorageSimpleFile::Initialize(std::vector<std::string> input_args,
-                                   std::vector<std::string>& remaining_args) {
-  CLI::App app{"Remember Storage Simple File"};
-  app.allow_extras();
+bool StorageSimpleFile::Initialize(CLI::App& app) {
   std::string storage_file;
   app.add_option("--storage-file", storage_file, "File to store data");
-  app.parse(input_args);
-  std::cout << storage_file;
-  // file_.open(filePath, file_.in | file_.out);
-  // TODO: better graceful failure
-  // assert(file_.is_open());
-  remaining_args = app.remaining_for_passthrough();
-  return true;
+  app.parse(app.remaining_for_passthrough());
+  std::cout << storage_file << "\n";
+  file_.open(storage_file, file_.in | file_.out);
+  // If File doesn't exist, try to create it
+  if (!file_.is_open()) {
+    file_.open(storage_file, file_.in | file_.out | file_.trunc);
+  }
+  return file_.is_open();
 }
 
 }  // namespace rmbr

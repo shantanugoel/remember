@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 
+#include "CLI/CLI.hpp"
 #include "src/storage/storage_interface.h"
 
 namespace rmbr {
@@ -29,10 +30,8 @@ class StorageMemory : public Storage {
     return item;
   }
 
-  bool Initialize(std::vector<std::string> input_args,
-                  std::vector<std::string>& remaining_args) override {
-    (void)input_args;
-    (void)remaining_args;
+  bool Initialize(CLI::App& app) override {
+    (void)app;
     return true;
   }
 
