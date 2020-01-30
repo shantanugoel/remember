@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "CLI/CLI.hpp"
+#include "json/json.hpp"
 
 namespace rmbr {
 

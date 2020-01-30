@@ -27,5 +27,6 @@ cc_library(
         ":storage_interface",
         "//src/model:model_item",
         "@cli11",
+        "@json",
     ],
 )

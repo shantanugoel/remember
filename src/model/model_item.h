@@ -19,6 +19,13 @@ class ModelItem {
   std::string what_;
 };
 
+struct ModelItemV1 {
+  uint64_t id;  // Can just do a count and inc by 1. Real UUIDs may allow multi
+                // threaded op. Otherwise just use daemon/client to arbitrate
+  std::string what;
+  std::vector<std::string> tags;
+};
+
 }  // namespace rmbr
 
 #endif  // RMBR_MODEL_MODEL_ITEM_H_

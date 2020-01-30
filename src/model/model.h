@@ -9,6 +9,11 @@
 
 namespace rmbr {
 
+struct ModelV1 {
+  uint32_t version;
+  ModelItemV1 item;
+};
+
 class Model {
  public:
   Model() = delete;
@@ -19,12 +24,14 @@ class Model {
     return storage_.Store(*item);
   }
 
+  // TODO: Add initialize func to load model data from storage
+
   ModelItem* Retrieve(uint64_t) { return storage_.Retrieve(0); }
 
  private:
   // TODO: Potentially implement caching. Either here or at storage
   Storage& storage_;
-  // uint64_t version_;  // TODO
+  ModelV1 data_;
 };
 
 }  // namespace rmbr
