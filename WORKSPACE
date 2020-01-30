@@ -5,6 +5,7 @@ new_git_repository(
     name = "cli11",
     build_file = "cli11.BUILD",
     remote = "https://github.com/CLIUtils/CLI11.git",
+    strip_prefix = "include",
     tag = "v1.9.0",
 )
 
