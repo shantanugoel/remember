@@ -16,22 +16,17 @@ namespace rmbr {
 class StorageSimpleFile : public Storage {
  public:
   ~StorageSimpleFile() { file_.close(); }
-  // TODO: Implement
-  uint64_t Store(ModelItem& item) override {
-    (void)item;
-    return 0;
-  }
-  // TODO: Implement
-  ModelItem* Retrieve(uint64_t id) override {
-    (void)id;
-    return nullptr;
-  }
+
+  uint64_t Store(const ModelItemV1& item) override;
+
+  ModelItemV1* Retrieve(uint64_t id) override;
 
   bool Initialize(CLI::App& app) override;
   bool LoadModel() override;
 
  private:
   std::fstream file_;
+  std::string file_path_;
   nlohmann::json model_json_;
 };
 

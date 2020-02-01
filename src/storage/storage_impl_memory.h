@@ -15,14 +15,14 @@ namespace rmbr {
 class StorageMemory : public Storage {
  public:
   // TODO: Implement. Generate new id
-  uint64_t Store(ModelItem& item) override {
+  uint64_t Store(const ModelItemV1& item) override {
     data_.emplace(0, item);
     return 0;
   }
 
   // TODO: Implement
-  ModelItem* Retrieve(uint64_t id) override {
-    ModelItem* item = nullptr;
+  ModelItemV1* Retrieve(uint64_t id) override {
+    ModelItemV1* item = nullptr;
     auto item_iterator = data_.find(id);
     if (item_iterator != data_.end()) {
       item = &(item_iterator->second);
@@ -36,7 +36,7 @@ class StorageMemory : public Storage {
   }
 
  private:
-  std::map<uint64_t, ModelItem> data_;
+  std::map<uint64_t, ModelItemV1> data_;
 };
 
 }  // namespace rmbr

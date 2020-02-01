@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
 
   rmbr::Controller controller;
   rmbr::Model model(storage);
+  assert(model.Initialize());
   rmbr::UiCli ui(controller, model);
   ui.Start(app);
   return 0;

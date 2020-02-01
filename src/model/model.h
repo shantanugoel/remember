@@ -20,14 +20,13 @@ class Model {
   Model(Storage& storage) : storage_(storage) {}
 
   uint64_t Store(std::string what) {
-    ModelItem* item = new ModelItem(what);
-    return storage_.Store(*item);
+    ModelItemV1 item{what, {"a", "b"}};
+    return storage_.Store(item);
   }
 
-  // TODO: Add initialize func to load model data from storage
   bool Initialize() { return storage_.LoadModel(); }
 
-  ModelItem* Retrieve(uint64_t) { return storage_.Retrieve(0); }
+  ModelItemV1* Retrieve(uint64_t) { return storage_.Retrieve(0); }
 
   double Version() { return version_; }
 
