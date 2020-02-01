@@ -26,7 +26,7 @@ class Model {
 
   bool Initialize() { return storage_.LoadModel(); }
 
-  ModelItemV1* Retrieve(uint64_t) { return storage_.Retrieve(0); }
+  ModelItemV1 Retrieve(uint64_t) { return storage_.Retrieve(0); }
 
   double Version() { return version_; }
 

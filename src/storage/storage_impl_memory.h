@@ -20,12 +20,12 @@ class StorageMemory : public Storage {
     return 0;
   }
 
-  // TODO: Implement
-  ModelItemV1* Retrieve(uint64_t id) override {
-    ModelItemV1* item = nullptr;
+  // TODO: Fix not existing scenario
+  ModelItemV1 Retrieve(uint64_t id) override {
+    ModelItemV1 item;
     auto item_iterator = data_.find(id);
     if (item_iterator != data_.end()) {
-      item = &(item_iterator->second);
+      item = item_iterator->second;
     }
     return item;
   }

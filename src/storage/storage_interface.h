@@ -8,7 +8,7 @@ namespace rmbr {
 class Storage {
  public:
   virtual uint64_t Store(const ModelItemV1& item) = 0;
-  virtual ModelItemV1* Retrieve(uint64_t) = 0;
+  virtual ModelItemV1 Retrieve(uint64_t) = 0;
   virtual bool Initialize(CLI::App& app) = 0;
   virtual bool LoadModel() = 0;
 

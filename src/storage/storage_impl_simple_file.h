@@ -19,7 +19,7 @@ class StorageSimpleFile : public Storage {
 
   uint64_t Store(const ModelItemV1& item) override;
 
-  ModelItemV1* Retrieve(uint64_t id) override;
+  ModelItemV1 Retrieve(uint64_t id) override;
 
   bool Initialize(CLI::App& app) override;
   bool LoadModel() override;

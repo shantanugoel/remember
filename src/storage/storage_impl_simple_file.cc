@@ -30,6 +30,7 @@ bool StorageSimpleFile::Initialize(CLI::App& app) {
     // TODO: Error handling
   }
   initialized_ = file_.is_open();
+  file_.close();
   return initialized_;
 }
 
@@ -37,6 +38,7 @@ bool StorageSimpleFile::LoadModel() {
   // TODO: Prevent loading model again if already loaded?
   if (initialized_) {
     try {
+      file_.open(file_path_, file_.in);
       file_ >> model_json_;
       model_loaded_ = true;
     } catch (nlohmann::json::exception& e) {
@@ -65,10 +67,16 @@ uint64_t StorageSimpleFile::Store(const ModelItemV1& item) {
   file_.close();
   return 0;
 }
-// TODO: Implement
-ModelItemV1* StorageSimpleFile::Retrieve(uint64_t id) {
-  (void)id;
-  return nullptr;
+
+// TODO: Allow "reload" to re-read data from filesystem in case files were
+// modified externally
+ModelItemV1 StorageSimpleFile::Retrieve(uint64_t id) {
+  auto data = model_json_.find(std::to_string(id));
+  ModelItemV1 item;
+  if (data != model_json_.end()) {
+    item = *data;
+  }
+  return item;
 }
 
 }  // namespace rmbr
