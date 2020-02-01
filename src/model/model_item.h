@@ -20,8 +20,6 @@ class ModelItem {
 };
 
 struct ModelItemV1 {
-  uint64_t id;  // Can just do a count and inc by 1. Real UUIDs may allow multi
-                // threaded op. Otherwise just use daemon/client to arbitrate
   std::string what;
   std::vector<std::string> tags;
 };

@@ -10,9 +10,13 @@ class Storage {
   virtual uint64_t Store(ModelItem& item) = 0;
   virtual ModelItem* Retrieve(uint64_t) = 0;
   virtual bool Initialize(CLI::App& app) = 0;
+  virtual bool LoadModel() = 0;
+
   // TODO: Add other search/retrieve mechanisms
 
- private:
+ protected:
+  bool initialized_ = false;
+  bool model_loaded_ = false;
 };
 
 }  // namespace rmbr

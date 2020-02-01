@@ -6,6 +6,8 @@
 #include <vector>
 
 #include "CLI/CLI.hpp"
+#include "json/json.hpp"
+#include "src/model/model.h"
 #include "src/model/model_item.h"
 #include "src/storage/storage_interface.h"
 
@@ -26,9 +28,11 @@ class StorageSimpleFile : public Storage {
   }
 
   bool Initialize(CLI::App& app) override;
+  bool LoadModel() override;
 
  private:
   std::fstream file_;
+  nlohmann::json model_json_;
 };
 
 }  // namespace rmbr

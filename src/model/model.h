@@ -10,8 +10,8 @@
 namespace rmbr {
 
 struct ModelV1 {
-  uint32_t version;
-  ModelItemV1 item;
+  double version;
+  std::map<uint64_t, ModelItemV1> items;
 };
 
 class Model {
@@ -25,13 +25,16 @@ class Model {
   }
 
   // TODO: Add initialize func to load model data from storage
+  bool Initialize() { return storage_.LoadModel(); }
 
   ModelItem* Retrieve(uint64_t) { return storage_.Retrieve(0); }
+
+  double Version() { return version_; }
 
  private:
   // TODO: Potentially implement caching. Either here or at storage
   Storage& storage_;
-  ModelV1 data_;
+  static constexpr double version_ = 1.0;
 };
 
 }  // namespace rmbr

@@ -6,6 +6,7 @@ cc_library(
     name = "storage_interface",
     hdrs = ["storage_interface.h"],
     deps = [
+        "//src/model:model_item",
         "@cli11",
     ],
 )
@@ -25,6 +26,7 @@ cc_library(
     hdrs = ["storage_impl_simple_file.h"],
     deps = [
         ":storage_interface",
+        "//src/model",
         "//src/model:model_item",
         "@cli11",
         "@json",
